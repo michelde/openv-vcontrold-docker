@@ -3,7 +3,7 @@
   <unix>
      <config>
 	<serial>
-		<tty>/dev/ttyUSB0</tty>
+		<tty>/dev/serial/by-id/usb-FTDI_FT232R_USB_UART_AL00AKZQ-if00-port0</tty>
 	</serial>
 	<net>
 		<port>3002</port>
