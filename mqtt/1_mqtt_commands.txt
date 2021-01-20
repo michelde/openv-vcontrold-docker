@@ -1,0 +1,15 @@
+getTempWWObenIst
+getTempWWsoll
+getNeigungHK1
+getTempVL
+getTempRL
+getPumpeStatusZirku
+getBetriebArtHK1
+getTempVListHK1
+getTempRListHK1
+getStatusVerdichter
+getPumpeStatusSp
+getJAZ
+getJAZHeiz
+getJAZWW
+getTempA
