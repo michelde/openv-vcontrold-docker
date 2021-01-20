@@ -1,4 +1,5 @@
 #!/bin/bash
+chmod 777 /dev/ttyUSB0
 vcontrold -x /etc/vcontrold/vcontrold.xml -P /var/run/vcontrold.pid
 
 status=$?
