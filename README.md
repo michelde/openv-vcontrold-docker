@@ -9,11 +9,11 @@ To get this working you need an optolink adatper which is connected to the host 
 
 ## Software requirements
 
-A Mqtt broker is required in your environment where this container will send the values to.
+A Mqtt broker is required in your environment where this container will send the values to. If you just want to test the vclient to get values set MQTTACTIVE = false. Then you can login to the container `docker exec -it openv-vcontrol-docker bash`. In the shell you can then test your commands e.g. `vclient -h 127.0.0.1 -p 3002 -c getTempA`.
 
 ## Configuration
 
-The container expects to have the configuration passed as environment variables. You need either to pass this when starting the container usind the option -e or you can also create a `.env` file for a docker-compose screnario.
+The container expects to have the `vcontrold.xml` and `vito.xml` file passed to the `/config` folder. The `/config` folder should also contain the files to send your attributes throug mqtt. For reference of these files look at this [GitHub REPO](https://github.com/michelde/openv-vcontrold-docker)
 
 ### MQTT
 
@@ -47,7 +47,7 @@ services:
     container_name: vcontrold
     restart: always
     devices:
-      - /dev/serial/by-id/usb-FTDI_FT232R_USB_UART_AL00AKZQ-if00-port0:/dev/ttyUSB0
+      - /dev/serial/by-id/usb-FTDI_FT232R_USB_UART_AL1234-if00-port0:/dev/ttyUSB0
     environment:
       MQTTHOST: ${MQTTHOST}
       MQTTPORT: ${MQTTPORT}
@@ -57,8 +57,10 @@ services:
       MQTTUSER: ${MQTTUSER}
       INTERVAL: ${INTERVAL}
     volumes:
-      - ./config:/etc/vcontrold/
+      - ./config:/config
 
 ```
 
 In order to pass the environment variables you can use the `.env` file and set the variables according to your needs.
+
+If you want to use the `docker` command it would be e.g. `docker run -d --name='vcontrold-docker' --net='bridge' --privileged=true -e TZ="Europe/Berlin" -e 'MQTTACTIVE'='true' -e 'MQTTHOST'='mqtt-server.home' -e 'MQTTPORT'='1883' -e 'MQTTTOPIC'='vitocal' -e 'MQTTUSER'='mqtt_user' -e 'MQTTPASSWORD'='secret123' -e 'INTERVAL'='60' -v '.config/':'/config':'rw' --device=/dev/serial/by-id/usb-FTDI_FT232R_USB_UART_AL1234-if00-port0:/dev/ttyUSB0:rw 'michelmu/vcontrold-openv-mqtt'`
