@@ -1,5 +1,8 @@
 #!/bin/bash
-# chmod 777 /dev/ttyUSB0
+USB_DEVICE=`find /dev/ -name ttyUSB*`
+echo ${USB_DEVICE}
+chmod 777 ${USB_DEVICE}
+cp /config/* /etc/vcontrold/
 vcontrold -x /etc/vcontrold/vcontrold.xml -P /var/run/vcontrold.pid
 
 status=$?

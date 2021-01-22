@@ -1,0 +1,18 @@
+version: '3.1'
+services:
+  vcontrold:
+    build: .
+    container_name: vcontrold
+    restart: always
+    devices:
+      - /dev/serial/by-id/usb-FTDI_FT232R_USB_UART_AL00AKZQ-if00-port0:/dev/ttyUSB0
+    environment:
+      MQTTHOST: ${MQTTHOST}
+      MQTTPORT: ${MQTTPORT}
+      MQTTTOPIC: ${MQTTTOPIC}
+      MQTTPASSWORD: ${MQTTPASSWORD}
+      MQTTACTIVE: ${MQTTACTIVE}
+      MQTTUSER: ${MQTTUSER}
+      INTERVAL: ${INTERVAL}
+    volumes:
+      - ./config:/config
