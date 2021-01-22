@@ -13,7 +13,7 @@ A Mqtt broker is required in your environment where this container will send the
 
 ## Configuration
 
-The container expects to have the configuration passed as environment variables. You need either to pass this when starting the container usind the option -e or you can also create a `.env` file for a docker-compose screnario. 
+The container expects to have the configuration passed as environment variables. You need either to pass this when starting the container usind the option -e or you can also create a `.env` file for a docker-compose screnario.
 
 ### MQTT
 
@@ -57,7 +57,7 @@ services:
       MQTTUSER: ${MQTTUSER}
       INTERVAL: ${INTERVAL}
     volumes:
-      - ./mqtt:/mqtt
+      - ./config:/etc/vcontrold/
 
 ```
 

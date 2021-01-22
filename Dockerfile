@@ -11,7 +11,7 @@ RUN git clone https://github.com/openv/vcontrold.git vcontrold-code && \
     make && \
     make install
 
-COPY config /etc/vcontrold
+COPY startup.sh /etc/vcontrold/
 
 EXPOSE 3002/udp
 ENTRYPOINT ["sh","/etc/vcontrold/startup.sh"]

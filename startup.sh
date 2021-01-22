@@ -1,5 +1,5 @@
 #!/bin/bash
-chmod 777 /dev/ttyUSB0
+# chmod 777 /dev/ttyUSB0
 vcontrold -x /etc/vcontrold/vcontrold.xml -P /var/run/vcontrold.pid
 
 status=$?
@@ -13,7 +13,7 @@ if [ $MQTTACTIVE = true ]; then
 	echo "MQTT: aktiv (var = $MQTTACTIVE)"
 	echo "Aktualisierungsintervall: $INTERVAL sec"
 	while sleep $INTERVAL; do
-		vclient -h 127.0.0.1 -p 3002 -f /mqtt/1_mqtt_commands.txt -t /mqtt/2_mqtt.tmpl -x /mqtt/3_mqtt_pub.txt
+		vclient -h 127.0.0.1 -p 3002 -f /etc/vcontrold/1_mqtt_commands.txt -t /etc/vcontrold/2_mqtt.tmpl -x /etc/vcontrold/3_mqtt_pub.txt
 		if [ -e /var/run/vcontrold.pid ]; then
 			:
 		else
