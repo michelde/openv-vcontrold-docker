@@ -7,7 +7,7 @@ echo "Device ${USB_DEVICE}"
 chmod 777 ${USB_DEVICE}
 cp /config/* /etc/vcontrold/
 # set the USB device in the vcontrold.xml settings file
-sed -i -e "/<serial>/,/<\/serial>/ s|<tty>[0-9a-z\/._A-Z:]\{1,\}</tty>|<tty>$USB_DEVICE</tty>|g" /etc/vcontrol/vcontrold.xml
+sed -i -e "/<serial>/,/<\/serial>/ s|<tty>[0-9a-z\/._A-Z:]\{1,\}</tty>|<tty>$USB_DEVICE</tty>|g" /etc/vcontrold/vcontrold.xml
 vcontrold -x /etc/vcontrold/vcontrold.xml -P /var/run/vcontrold.pid
 
 status=$?
