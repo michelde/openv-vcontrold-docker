@@ -1,9 +1,13 @@
 #!/bin/bash
-sleep 5
+sleep 3
+# search the USB device as it sometimes is USB0 or USB1
 USB_DEVICE=`find /dev/ -name ttyUSB*`
 echo "Device ${USB_DEVICE}"
+# make device accessable
 chmod 777 ${USB_DEVICE}
 cp /config/* /etc/vcontrold/
+# set the USB device in the vcontrold.xml settings file
+sed -i -e "/<serial>/,/<\/serial>/ s|<tty>[0-9a-z\/._A-Z:]\{1,\}</tty>|<tty>$USB_DEVICE</tty>|g" /etc/vcontrol/vcontrold.xml
 vcontrold -x /etc/vcontrold/vcontrold.xml -P /var/run/vcontrold.pid
 
 status=$?
