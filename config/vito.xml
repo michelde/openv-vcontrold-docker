@@ -542,6 +542,12 @@
         <unit>RT</unit>
       </device>
     </command>
+    <command name="getPumpeStatusHK1" protocmd="getaddr">
+      <addr>048D</addr>
+      <len>1</len>
+      <unit>RT</unit>
+      <description>Ermittle den Status der Heizkreispumpe HK1</description>
+    </command>    
     <command name="getPumpeStatusZirku" protocmd="getaddr">
       <addr>0846</addr>
       <len>1</len>

@@ -8,8 +8,8 @@ getBetriebArtHK1
 getTempVListHK1
 getTempRListHK1
 getStatusVerdichter
-getPumpeStatusSp
 getJAZ
 getJAZHeiz
 getJAZWW
 getTempA
+getPumpeStatusHK1

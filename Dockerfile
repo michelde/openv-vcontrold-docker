@@ -2,7 +2,7 @@ FROM debian:stable-slim
 
 RUN apt-get update && \
     apt-get upgrade -y && \
-    apt-get install -y build-essential vim subversion automake autoconf telnet libxml2-dev mosquitto-clients git cmake python-docutils
+    apt-get install -y build-essential vim subversion automake autoconf telnet libxml2-dev mosquitto-clients git cmake python-docutils jq
 RUN mkdir openv && cd openv && \
     git clone https://github.com/openv/vcontrold.git vcontrold-code && \
     cd vcontrold-code && \
