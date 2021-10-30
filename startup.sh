@@ -20,8 +20,13 @@ if [ $MQTTACTIVE = true ]; then
 	echo "vcontrold gestartet (PID $pid)"
 	echo "MQTT: aktiv (var = $MQTTACTIVE)"
 	echo "Aktualisierungsintervall: $INTERVAL sec"
+  #COMMANDS=`cat /etc/vcontrold/vito_commands.txt`
+  echo "Lese Parameter: $COMMANDS"
+  /etc/vcontrold/mqtt_sub.sh
 	while sleep $INTERVAL; do
-		vclient -h 127.0.0.1 -p 3002 -f /etc/vcontrold/1_mqtt_commands.txt -t /etc/vcontrold/2_mqtt.tmpl -x /etc/vcontrold/3_mqtt_pub.txt
+		#vclient -h 127.0.0.1 -p 3002 -f /etc/vcontrold/1_mqtt_commands.txt -t /etc/vcontrold/2_mqtt.tmpl -x /etc/vcontrold/3_mqtt_pub.txt
+    vclient -h 127.0.0.1:3002 -c ${COMMANDS} -J -o result.json
+    /etc/vcontrold/mqtt_publish.sh
 		if [ -e /var/run/vcontrold.pid ]; then
 			:
 		else

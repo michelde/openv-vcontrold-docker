@@ -13,7 +13,7 @@ A Mqtt broker is required in your environment where this container will send the
 
 ## Configuration
 
-The container expects to have the `vcontrold.xml` and `vito.xml` file passed to the `/config` folder. The `/config` folder should also contain the files to send your attributes throug mqtt. For reference of these files look at this [GitHub REPO](https://github.com/michelde/openv-vcontrold-docker)
+The container expects to have the `vcontrold.xml` and `vito.xml` file passed to the `/config` folder. The `/config` folder should also contain the files to send your attributes through mqtt. For reference of these files look at this [GitHub REPO](https://github.com/michelde/openv-vcontrold-docker)
 
 ### MQTT
 
@@ -27,6 +27,15 @@ For the mqtt broker you need to define the following environment variables:
 | MQTTUSER      | if mqtt broker requires authentification |  `mqtt_user` |
 | MQTTPASSWORD  | if mqtt broker requires authentification |  `secret123` |
 
+### Commands
+
+The commands which should be read can be configured using the environment variable `COMMANDS`. If you want to read multiple commands, each command must be separated by a comma. As an example, my current `COMMANDS` variable looks like this:
+
+```bash
+COMMANDS=getTempWWObenIst,getTempWWsoll,getNeigungHK1,getTempVL,getTempRL,getPumpeStatusZirku,getBetriebArtHK1,getTempVListHK1,getTempRListHK1,getStatusVerdichter,getJAZ,getJAZHeiz,getJAZWW,getTempA,getPumpeStatusHK1
+```
+
+The program will then publish the value to the topic `$MQTTTOPIC/(COMMANDNAME)`.
 ### Read interval
 
 The environment variable `INTERVAL` defines the time in seconds
@@ -56,6 +65,7 @@ services:
       MQTTACTIVE: ${MQTTACTIVE}
       MQTTUSER: ${MQTTUSER}
       INTERVAL: ${INTERVAL}
+      COMMANDS: ${COMMANDS}
     volumes:
       - ./config:/config
 
@@ -64,3 +74,5 @@ services:
 In order to pass the environment variables you can use the `.env` file and set the variables according to your needs.
 
 If you want to use the `docker` command it would be e.g. `docker run -d --name='vcontrold-docker' --net='bridge' --privileged=true -e TZ="Europe/Berlin" -e 'MQTTACTIVE'='true' -e 'MQTTHOST'='mqtt-server.home' -e 'MQTTPORT'='1883' -e 'MQTTTOPIC'='vitocal' -e 'MQTTUSER'='mqtt_user' -e 'MQTTPASSWORD'='secret123' -e 'INTERVAL'='60' -v '.config/':'/config':'rw' --device=/dev/serial/by-id/usb-FTDI_FT232R_USB_UART_AL1234-if00-port0:/dev/ttyUSB0:rw 'michelmu/vcontrold-openv-mqtt'`
+
+It also possible to set some values. This can be achieved using the topic `$MQTTTOPIC/commands`. A sample payload to set the water heating temperature would look like this: `setTempWWsoll 55`.

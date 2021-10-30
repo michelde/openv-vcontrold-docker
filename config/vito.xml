@@ -128,31 +128,39 @@
       <addr>010E</addr>
       <len>2</len>
       <unit>UT</unit>
-      <description>Ermittle die Warmwassertemperatur Unten in Grad C
-			</description>
+      <description>Ermittle die Warmwassertemperatur Unten in Grad C</description>
     </command>
     <command name="getTempWWsoll" protocmd="getaddr">
       <addr>6000</addr>
       <len>2</len>
       <unit>UT</unit>
-      <description>Ermittle die Warmwassersolltemperatur in Grad C
-			</description>
+      <description>Ermittle die Warmwassersolltemperatur in Grad C</description>
     </command>
     <!-- set Befehl eingefuegt von ceteris paribus 2010 -->
     <command name="setTempWWsoll" protocmd="setaddr">
       <addr>6000</addr>
       <len>2</len>
       <unit>UT</unit>
-      <description>Setze die Warmwassersolltemperatur in Grad C
-			</description>
+      <description>Setze die Warmwassersolltemperatur in Grad C</description>
+    </command>
+    <command name="getWWBereitung" protocmd="getaddr">
+      <addr>B020</addr>
+      <len>1</len>
+      <unit>WW</unit>
+      <description>Ermittle einmalige Warmwasser Aufbereitung Temp2</description>
+    </command>
+    <command name="setWWBereitung" protocmd="setaddr">
+      <addr>B020</addr>
+      <len>1</len>
+      <unit>WW</unit>
+      <description>Setze einmalige Warmwasser Aufbereitung Temp2</description>
     </command>
     <!-- get Befehl eingefuegt von ceteris paribus 2010 Was ist die WW-Auslauftemperatur -->
     <command name="getTempStp2" protocmd="getaddr">
       <addr>0814</addr>
       <len>2</len>
       <unit>UT</unit>
-      <description>Ermittle die WW Auslauftemperatur in Grad C (Tiefpass)
-			</description>
+      <description>Ermittle die WW Auslauftemperatur in Grad C (Tiefpass)</description>
     </command>
     <!-- get Befehl eingefuegt von ceteris paribus 25.08.2011 -->
     <command name="getWWUWPNachlauf" protocmd="getaddr">

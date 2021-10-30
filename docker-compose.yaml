@@ -14,5 +14,6 @@ services:
       MQTTACTIVE: ${MQTTACTIVE}
       MQTTUSER: ${MQTTUSER}
       INTERVAL: ${INTERVAL}
+      COMMANDS: ${COMMANDS}
     volumes:
       - ./config:/config
