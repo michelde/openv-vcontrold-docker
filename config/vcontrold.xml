@@ -121,8 +121,8 @@
     <unit name='WWBereitung'>
 	   <abbrev>WW</abbrev>
 	   <type>enum</type>
-	   <enum bytes='00' text='NB' />
-       <enum bytes='01' text='MB' />
+           <enum bytes='00' text='NB' />
+           <enum bytes='01' text='MB' />
 	   <enum bytes='02' text='WW' />
 	   <enum text='UNKNOWN' />
 	</unit>

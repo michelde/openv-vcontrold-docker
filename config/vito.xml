@@ -7,7 +7,7 @@
     <device ID="2094" name="Dummy" protocol="KW2"/>
     <device ID="204B" name="VBC702-AW" protocol="P300"/>
     <device ID="2048" name="VBC702-BW" protocol="P300"/>
-    <device ID="204D" name="Vitotronic 200" protocol="P300"/>
+    <device ID="204D" name="Vitotronic 200" protocol="KW2"/>
   </devices>
   <commands>
     <!-- neue Adressen -->
@@ -401,7 +401,6 @@
       <unit>UTI</unit>
       <description>Setze die Raumsolltemperatur normal M2 in Grad C
 			</description>
-      <device ID="2053"/>
     </command>
     <command name="getTempRaumRedSollM1" protocmd="getaddr">
       <addr>2307</addr>
@@ -409,11 +408,6 @@
       <unit>UTI</unit>
       <description>Ermittle die Raumsolltemperatur reduziert M1 in Grad C
 			</description>
-      <device ID="2053">
-        <addr>54</addr>
-        <len>1</len>
-        <unit>UTI</unit>
-      </device>
     </command>
     <!-- set Befehl eingefuegt von ceteris paribus 13.10.2012 -->
     <command name="setTempRaumRedSollM1" protocmd="setaddr">
@@ -422,11 +416,6 @@
       <unit>UTI</unit>
       <description>Setze die Raumsolltemperatur reduziert M1 in Grad C
 			</description>
-      <device ID="2053">
-        <addr>54</addr>
-        <len>1</len>
-        <unit>UTI</unit>
-      </device>
     </command>
     <command name="getTempRaumRedSollM2" protocmd="getaddr">
       <addr>3307</addr>
@@ -434,7 +423,6 @@
       <unit>UTI</unit>
       <description>Ermittle die Raumsolltemperatur reduziert M2 in Grad C
 			</description>
-      <device ID="2053"/>
     </command>
     <!-- set Befehl eingefuegt von ceteris paribus 2010 -->
     <command name="setTempRaumRedSollM2" protocmd="setaddr">
@@ -443,7 +431,6 @@
       <unit>UTI</unit>
       <description>Setze die Raumsolltemperatur reduziert M2 in Grad C
 			</description>
-      <device ID="2053"/>
     </command>
     <!-- PUMPEN -->
     <command name="getPumpeStatusM1" protocmd="getaddr">
