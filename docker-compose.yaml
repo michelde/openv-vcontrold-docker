@@ -5,7 +5,9 @@ services:
     container_name: vcontrold
     restart: always
     devices:
-      - /dev/serial/by-id/usb-FTDI_FT232R_USB_UART_AL00AKZQ-if00-port0:/dev/vitocal:rwm
+#      - /dev/serial/by-id/usb-FTDI_FT232R_USB_UART_AL00AKZQ-if00-port0:/dev/vitocal:rwm
+#     On Synology we can't use the serial-by-id path
+      - /dev/vitocal:/dev/vitocal:rwm
       - /dev/bus/usb:/dev/bus/usb:rwm
     environment:
       MQTTHOST: ${MQTTHOST}
@@ -18,3 +20,8 @@ services:
       COMMANDS: ${COMMANDS}
     volumes:
       - ./config:/config
+networks:
+  default:
+    name: docker_default
+    external: true
+
