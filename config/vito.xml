@@ -122,7 +122,7 @@
       <len>2</len>
       <unit>UT</unit>
       <description>Ermittle die Warmwassertemperatur Oben in Grad C
-			</description>
+      </description>
     </command>
     <command name="getTempWWUntenIst" protocmd="getaddr">
       <addr>010E</addr>
@@ -281,56 +281,56 @@
       <len>2</len>
       <unit>UT</unit>
       <description>Ermittle die Vorlauftemperatur in Grad C
-			</description>
+      </description>
     </command>
     <command name="getTempRL" protocmd="getaddr">
       <addr>0106</addr>
       <len>2</len>
       <unit>UT</unit>
       <description>Ermittle die R&#xFC;cklauftemperatur in Grad C
-			</description>
+      </description>
     </command>
     <command name="getTempVListHK1" protocmd="getaddr">
       <addr>0103</addr>
       <len>2</len>
       <unit>UT</unit>
       <description>Ermittle die Vorlauftemperatur HK1 in Grad C
-			</description>
+      </description>
     </command>
     <command name="getTempRListHK1" protocmd="getaddr">
       <addr>0104</addr>
       <len>2</len>
       <unit>UT</unit>
       <description>Ermittle die R&#xFC;cklauftemperatur HK1 in Grad C
-			</description>
+      </description>
     </command>
     <command name="getTempVListHK2" protocmd="getaddr">
       <addr>01D4</addr>
       <len>2</len>
       <unit>UT</unit>
       <description>Ermittle die Vorlauftemperatur HK2 in Grad C
-			</description>
+      </description>
     </command>
     <command name="getTempVLsollHK1" protocmd="getaddr">
       <addr>1800</addr>
       <len>2</len>
       <unit>UT</unit>
       <description>Ermittle die Vorlaufsolltemperatur HK1 in Grad C
-			</description>
+      </description>
     </command>
     <command name="getTempVLsollM2" protocmd="getaddr">
       <addr>1801</addr>
       <len>2</len>
       <unit>UT</unit>
       <description>Ermittle die Vorlaufsolltemperatur M2 in Grad C
-			</description>
+      </description>
     </command>
     <command name="getTempRL17A" protocmd="getaddr">
       <addr>080A</addr>
       <len>2</len>
       <unit>UT</unit>
       <description>Ermittle die Ruecklauftemperatur 17A in Grad C
-			</description>
+      </description>
       <device ID="2053"/>
       <!-- Device 20CB eingefuegt von ceteris paribus 2010 -->
       <device ID="20CB">
@@ -345,7 +345,7 @@
       <len>2</len>
       <unit>UT</unit>
       <description>Ermittle die Speichertemperatur unten in Grad C
-			</description>
+      </description>
       <device ID="2053"/>
     </command>
     <command name="getTempStp" protocmd="getaddr">
@@ -353,7 +353,7 @@
       <len>2</len>
       <unit>UT</unit>
       <description>Ermittle die Speichertemperatur in Grad C (Tiefpass)
-			</description>
+      </description>
       <device ID="2053"/>
       <device ID="2098"/>
     </command>
@@ -363,7 +363,7 @@
       <len>1</len>
       <unit>UTI</unit>
       <description>Ermittle die Raumsolltemperatur normal M1 in Grad C
-			</description>
+      </description>
       <device ID="2053">
         <addr>53</addr>
         <len>1</len>
@@ -377,7 +377,7 @@
       <len>1</len>
       <unit>UTI</unit>
       <description>Setze die Raumsolltemperatur normal M1 in Grad C
-			</description>
+      </description>
       <device ID="2053">
         <addr>53</addr>
         <len>1</len>
@@ -389,7 +389,7 @@
       <len>1</len>
       <unit>UTI</unit>
       <description>Ermittle die Raumsolltemperatur normal M2 in Grad C
-			</description>
+      </description>
       <device ID="2053"/>
     </command>
     <!-- set Befehl eingefuegt von ceteris paribus 20.12.2011 geht noch nicht -->
@@ -400,14 +400,14 @@
       <len>1</len>
       <unit>UTI</unit>
       <description>Setze die Raumsolltemperatur normal M2 in Grad C
-			</description>
+      </description>
     </command>
     <command name="getTempRaumRedSollM1" protocmd="getaddr">
       <addr>2307</addr>
       <len>1</len>
       <unit>UTI</unit>
       <description>Ermittle die Raumsolltemperatur reduziert M1 in Grad C
-			</description>
+      </description>
     </command>
     <!-- set Befehl eingefuegt von ceteris paribus 13.10.2012 -->
     <command name="setTempRaumRedSollM1" protocmd="setaddr">
@@ -415,14 +415,14 @@
       <len>1</len>
       <unit>UTI</unit>
       <description>Setze die Raumsolltemperatur reduziert M1 in Grad C
-			</description>
+      </description>
     </command>
     <command name="getTempRaumRedSollM2" protocmd="getaddr">
       <addr>3307</addr>
       <len>1</len>
       <unit>UTI</unit>
       <description>Ermittle die Raumsolltemperatur reduziert M2 in Grad C
-			</description>
+      </description>
     </command>
     <!-- set Befehl eingefuegt von ceteris paribus 2010 -->
     <command name="setTempRaumRedSollM2" protocmd="setaddr">
@@ -430,7 +430,7 @@
       <len>1</len>
       <unit>UTI</unit>
       <description>Setze die Raumsolltemperatur reduziert M2 in Grad C
-			</description>
+      </description>
     </command>
     <!-- PUMPEN -->
     <command name="getPumpeStatusM1" protocmd="getaddr">
@@ -542,7 +542,7 @@
       <len>1</len>
       <unit>RT</unit>
       <description>Ermittle den Status der Heizkreispumpe HK1</description>
-    </command>    
+    </command>
     <command name="getPumpeStatusZirku" protocmd="getaddr">
       <addr>0846</addr>
       <len>1</len>
@@ -656,6 +656,13 @@
         <unit>BA</unit>
       </device>
     </command>
+    <command name="setBetriebArtHK1" protocmd="setaddr">
+      <addr>B000</addr>
+      <len>1</len>
+      <unit>BA</unit>
+      <description>Setze Betriebsart HK1</description>
+      <device ID="2053"/>
+    </command>
     <command name="getBetriebArt" protocmd="getaddr">
       <addr>2301</addr>
       <len>1</len>
@@ -730,7 +737,7 @@
       <len>1</len>
       <unit>ST</unit>
       <description>Setze die Warmwassersolltemperatur Party M1 in Grad C
-			</description>
+      </description>
       <device ID="2053"/>
     </command>
     <command name="getTempPartyHK2" protocmd="getaddr">
@@ -744,7 +751,7 @@
       <len>1</len>
       <unit>ST</unit>
       <description>Setze die Warmwassersolltemperatur Party HK2 in Grad C
-			</description>
+      </description>
     </command>
     <command name="setBetriebPartyM1" protocmd="setaddr">
       <addr>2303</addr>
@@ -931,7 +938,7 @@
       <len>1</len>
       <unit>UTI</unit>
       <description>Ermittle die Heizkreispumpenlogik&#x2212;Funktion M2
-			</description>
+      </description>
       <!-- KA5_KonfSommersparSchaltschwelleM2 A5 0x37a5 -->
     </command>
     <!-- set Befehl eingefuegt von ceteris paribus 27.09.2011 -->
@@ -948,7 +955,7 @@
       <len>1</len>
       <unit>UTI</unit>
       <description>Ermittle die Heizkreispumpenlogik&#x2212;Funktion M3
-			</description>
+      </description>
       <!-- KA5_KonfSommersparSchaltschwelleM2 A5 0x47a5 -->
     </command>
     <!-- set Befehl eingefuegt von ceteris paribus 27.09.2011 -->
@@ -1190,7 +1197,7 @@
       <unit>CT</unit>
       <description>Schaltzeit Montag Warmwasser setzen</description>
       <device ID="2053"/>
-    </command>  
+    </command>
     <command name="setTimerWWDi" protocmd="setaddr">
       <addr>2108</addr>
       <len>8</len>
@@ -1318,7 +1325,7 @@
       <len>4</len>
       <unit>DT</unit>
       <description>KS Karte Typ
-			</description>
+      </description>
     </command>
     <!-- Befehl eingefuegt von ceteris paribus 27.10.2011 -->
     <command name="getAnlagenschema" protocmd="getaddr">
@@ -1389,7 +1396,7 @@
     </command>
     <command name="kmget" protocmd="getkmtestaddr">
       <description>Testabfrage, KM-Bus EEProm Adresse eingeben
-			</description>
+      </description>
       <device ID="2053">
         <addr>dummy</addr>
         <len>1</len>
@@ -1397,7 +1404,7 @@
     </command>
     <command name="getExtBA" protocmd="getxaddr">
       <description>Ermittle Zustand der externen Betriebsartenumschaltung
-			</description>
+      </description>
       <device ID="2053">
         <addr>00</addr>
         <len>1</len>
@@ -1429,7 +1436,7 @@
       <len>1</len>
       <unit>USV</unit>
       <description>Ermittle den Status des Umschaltventils WW/Heizen
-			</description>
+      </description>
       <device ID="2098"/>
       <device ID="2053">
         <addr>01</addr>
@@ -1445,7 +1452,7 @@
       <len>1</len>
       <unit>USV</unit>
       <description>Setze den Status des Umschaltventils WW/Heizen
-			</description>
+      </description>
       <device ID="2098"/>
       <device ID="2053">
         <addr>01</addr>
