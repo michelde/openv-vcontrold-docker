@@ -1,27 +1,55 @@
-version: '3.1'
+version: '3.8'
+
 services:
   vcontrold:
-    build: .
+    image: michelmu/vcontrold-openv:latest
+    # For local builds, use:
+    # build: .
     container_name: vcontrold
-    restart: always
+    restart: unless-stopped
+    
     devices:
-#      - /dev/serial/by-id/usb-FTDI_FT232R_USB_UART_AL00AKZQ-if00-port0:/dev/vitocal:rwm
-#     On Synology we can't use the serial-by-id path
-      - /dev/vitocal:/dev/vitocal:rwm
-      - /dev/bus/usb:/dev/bus/usb:rwm
+      # Recommended: Use serial-by-id for stable device mapping
+      - /dev/serial/by-id/usb-FTDI_FT232R_USB_UART_AL00AKZQ-if00-port0:/dev/vitocal:rwm
+      
+      # Alternative for Synology NAS or systems without serial-by-id:
+      # - /dev/ttyUSB0:/dev/vitocal:rwm
+      # - /dev/bus/usb:/dev/bus/usb:rwm
+    
     environment:
+      MQTTACTIVE: ${MQTTACTIVE:-true}
       MQTTHOST: ${MQTTHOST}
-      MQTTPORT: ${MQTTPORT}
+      MQTTPORT: ${MQTTPORT:-1883}
       MQTTTOPIC: ${MQTTTOPIC}
       MQTTPASSWORD: ${MQTTPASSWORD}
-      MQTTACTIVE: ${MQTTACTIVE}
       MQTTUSER: ${MQTTUSER}
-      INTERVAL: ${INTERVAL}
+      INTERVAL: ${INTERVAL:-60}
       COMMANDS: ${COMMANDS}
+    
     volumes:
-      - ./config:/config
-networks:
-  default:
-    name: docker_default
-    external: true
+      # Mount config directory as read-only for security
+      - ./config:/config:ro
+    
+    # Health check to monitor container status
+    healthcheck:
+      test: ["CMD", "pidof", "vcontrold"]
+      interval: 60s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+    
+    # Resource limits (optional, adjust based on your system)
+    # deploy:
+    #   resources:
+    #     limits:
+    #       cpus: '0.5'
+    #       memory: 256M
+    #     reservations:
+    #       cpus: '0.1'
+    #       memory: 64M
 
+# Optional: Use external network
+# networks:
+#   default:
+#     name: docker_default
+#     external: true

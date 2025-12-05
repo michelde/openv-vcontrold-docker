@@ -1,0 +1,42 @@
+# Git files
+.git
+.gitignore
+.github
+
+# Documentation
+README.md
+CHANGELOG.md
+CONTRIBUTING.md
+*.md
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Docker files
+docker-compose.yaml
+docker-compose.yml
+docker-compose.*.yaml
+docker-compose.*.yml
+Dockerfile*
+
+# IDE and editor files
+.vscode
+.idea
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Logs
+*.log
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Build artifacts
+dist/
+build/
