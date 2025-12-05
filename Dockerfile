@@ -39,9 +39,9 @@ RUN apt-get update && \
     apt-get clean
 
 # Copy built binaries from builder stage
-COPY --from=builder /usr/local/bin/vcontrold /usr/local/bin/vcontrold
-COPY --from=builder /usr/local/bin/vclient /usr/local/bin/vclient
-COPY --from=builder /usr/local/bin/vsim /usr/local/bin/vsim
+# vcontrold is installed to /usr/sbin, vclient and vsim to /usr/bin
+COPY --from=builder /usr/sbin/vcontrold /usr/sbin/vcontrold
+COPY --from=builder /usr/bin/vclient /usr/bin/vclient
 
 # Copy configuration files
 COPY config /etc/vcontrold/

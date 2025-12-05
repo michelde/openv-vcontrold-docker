@@ -60,6 +60,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Missing error handling in vclient calls
 - No validation of required environment variables
 - Daemon health check logic improved
+- Multi-arch Docker build failures (corrected binary installation paths)
+- Removed vsim binary copy (not needed for runtime, not always built)
 
 ### Security
 - Config directory now mounted as read-only
